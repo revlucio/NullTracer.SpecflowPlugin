@@ -1,5 +1,11 @@
-{
-    "version": "1.0.0",
+﻿{
+    "version": "1.0.1",
+    "authors": [ "Luke Elliott" ],
+    "title": "NullTracer.SpecflowPlugin",
+    "packOptions": {
+        "summary": "For when you don't want loads of output when running SpecFlow from the command line",
+        "projectUrl": "https://github.com/revlucio/NullTracer.SpecflowPlugin"
+    },
     "dependencies": {
         "SpecFlow": "2.1.0"
     },

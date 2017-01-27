@@ -1,18 +1,22 @@
-using MinTracer.SpecflowPlugin;
+﻿using System;
+using NullTracer.SpecflowPlugin;
 using TechTalk.SpecFlow.Plugins;
 using TechTalk.SpecFlow.Tracing;
 
 [assembly: RuntimePlugin(typeof(NullTracerPlugin))]
- namespace MinTracer.SpecflowPlugin
+ namespace NullTracer.SpecflowPlugin
  {
      public class NullTracerPlugin : IRuntimePlugin
      {
          public void Initialize(RuntimePluginEvents runtimePluginEvents, RuntimePluginParameters runtimePluginParameters)
          {
-             runtimePluginEvents.CustomizeTestThreadDependencies += (sender, args) =>
+             if (Environment.GetEnvironmentVariable("DisableNullTracer") != "true")
              {
-                 args.ObjectContainer.RegisterTypeAs<CustomTracer.SpecflowPlugin.NullTracer, ITestTracer>();
-             };
+                 runtimePluginEvents.CustomizeTestThreadDependencies += (sender, args) =>
+                 {
+                     args.ObjectContainer.RegisterTypeAs<NullTracer, ITestTracer>();
+                 };
+             }
          }
      }
  }

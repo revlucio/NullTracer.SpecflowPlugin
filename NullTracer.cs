@@ -6,7 +6,7 @@ using TechTalk.SpecFlow.Bindings;
 using TechTalk.SpecFlow.Bindings.Reflection;
 using TechTalk.SpecFlow.Tracing;
 
-namespace CustomTracer.SpecflowPlugin
+namespace NullTracer.SpecflowPlugin
 {
     public class NullTracer : ITestTracer
     {
